@@ -1,15 +1,4 @@
-"""
-tune_models.py
-Toi uu hyperparameter cho DT, RF, XGBoost bang RandomizedSearchCV.
 
-QUAN TRONG: dung PredefinedSplit (Train/Val co san cua DAiSEE), KHONG dung K-fold
-CV ngau nhien -- vi K-fold se tu xao tron lai data, co the nhet cung 1 UserID vao
-ca fold train va fold validation, pha vo dung nguyen tac tach user rieng biet ma
-DAiSEE da thiet ke san (va da ban ky o dau du an nay).
-
-Cach dung:
-    python tune_models.py
-"""
 
 import json
 from pathlib import Path
@@ -28,9 +17,6 @@ from xgboost import XGBClassifier
 from imblearn.over_sampling import SMOTE
 
 
-# ---------------------------------------------------------------------
-# CAU HINH -- SUA CHO DUNG MAY BAN
-# ---------------------------------------------------------------------
 BASE_DIR = Path(r"C:\Users\KIET PC\Desktop\Focus_Guard")
 PROCESSED_DIR = BASE_DIR / "data" / "processed"
 MODELS_DIR = BASE_DIR / "outputs" / "models_tuned3"
@@ -44,7 +30,7 @@ FEATURE_PREFIXES = ["ear_", "mar_", "yaw_", "pitch_"]
 
 N_ITER_SEARCH = 25   # so to hop ngau nhien thu cho MOI model -- tang len neu co du thoi gian
 
-# --- CAU HINH THU NGHIEM (bat/tat de so sanh ket qua) ---
+#CAU HINH THU NGHIEM (bat/tat de so sanh ket qua)
 USE_BINARY_LABELS = False   # True = gop 4 muc (0-3) thanh 2 muc (Low/High)
 USE_SMOTE = True            # True = ap dung SMOTE can bang lop hiem (chi tren Train)
 SMOTE_K_NEIGHBORS = 5        # so hang xom dung de noi suy (tu dong giam neu lop hiem qua it)
@@ -70,11 +56,6 @@ def load_data():
     feature_cols = get_feature_columns(train_df)
     for df in [train_df, val_df, test_df]:
         df.dropna(subset=feature_cols, inplace=True)
-
-    # THU NGHIEM: gop 4 muc (0-3) thanh 2 muc (Low/High) cho tung dimension.
-    # Ly do: F1 thap deu tren ca 3 thuat toan -> nghi ngo qua nhieu lop + lop
-    # hiem (Engagement=0 chi ~0.7% sample) khien model khong hoc duoc gi.
-    # Gop lai giam do chi tiet nhung tang so luong sample/lop, de hoc hon.
     if USE_BINARY_LABELS:
         for df in [train_df, val_df, test_df]:
             for label in LABEL_COLUMNS:
@@ -83,10 +64,7 @@ def load_data():
     return train_df, val_df, test_df, feature_cols
 
 
-# =======================================================================
 # SEARCH SPACE -- pham vi hyperparameter can thu cho moi thuat toan
-# =======================================================================
-
 SEARCH_SPACES = {
     "DecisionTree": {
         "class": DecisionTreeClassifier,
@@ -137,13 +115,6 @@ def make_predefined_split(n_train: int, n_val: int) -> PredefinedSplit:
 
 
 def apply_smote(X_train, y_train, label_name: str):
-    """
-    Ap dung SMOTE CHI tren Train set de can bang lop hiem.
-    KHONG bao gio ap dung cho Val/Test (se gay leakage -- danh gia tren data gia).
-
-    SMOTE noi suy: lay 1 sample thuoc lop hiem, tim k hang xom gan nhat cung lop,
-    tao diem moi nam GIUA chung -> tang so luong sample cho lop hiem.
-    """
     if not USE_SMOTE:
         return X_train, y_train
 
@@ -189,8 +160,8 @@ def tune_one_label(algo_name: str, algo_config: dict,
         estimator=model,
         param_distributions=algo_config["search_space"],
         n_iter=N_ITER_SEARCH,
-        scoring=f1_macro_scorer,     # toi uu theo F1-macro, khong phai accuracy (ly do: imbalance)
-        cv=predefined_split,          # CHI danh gia tren dung fold Validation goc
+        scoring=f1_macro_scorer,    
+        cv=predefined_split,          
         random_state=42,
         n_jobs=-1,
         verbose=0,

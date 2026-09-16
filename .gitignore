@@ -11,8 +11,12 @@ stage1_landmarks_output/
 temp/
 *.png
 *.csv
+*.avi
+*.mp4
 train_models.py
 show_matrix.py
 tune_models.py
-
+video/
 app_test.py
+train_models.py
+tune_models.py

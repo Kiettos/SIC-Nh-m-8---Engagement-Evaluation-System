@@ -1,12 +1,3 @@
-"""
-train_models.py
-Train DT, RF, XGBoost tren train_features.csv, danh gia tren val/test_features.csv.
-Moi dimension (Engagement/Boredom/Confusion/Frustration) train 1 model rieng.
-
-Cach dung:
-    python train_models.py
-(sua BASE_DIR ben duoi cho dung may ban truoc khi chay)
-"""
 
 import json
 from pathlib import Path
@@ -22,9 +13,6 @@ from sklearn.metrics import accuracy_score, f1_score, classification_report, con
 from xgboost import XGBClassifier
 
 
-# ---------------------------------------------------------------------
-# CAU HINH -- SUA CHO DUNG MAY BAN
-# ---------------------------------------------------------------------
 BASE_DIR = Path(r"C:\Users\KIET PC\Desktop\Focus_Guard")
 PROCESSED_DIR = BASE_DIR / "data" / "processed"
 MODELS_DIR = BASE_DIR / "outputs" / "models"
