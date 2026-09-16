@@ -1,0 +1,14 @@
+{
+    "student_id": "55",
+    "full_name": "444444",
+    "test_id": "55555",
+    "duration_setting": "15 Seconds",
+    "status": "Completed",
+    "recorded_at": "2026-09-15 09:50:22",
+    "ai_emotion_analysis": {
+        "boredom_score": 0.0,
+        "engagement_score": 1.0,
+        "confusion_score": 0.0,
+        "frustration_score": 0.0
+    }
+}

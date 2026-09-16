@@ -1,0 +1,14 @@
+{
+    "student_id": "2222222",
+    "full_name": "Lương Chí Kiệt",
+    "test_id": "23r2342342",
+    "duration_setting": "15 Seconds",
+    "status": "Completed",
+    "recorded_at": "2026-09-12 22:07:35",
+    "features_summary": {
+        "avg_ear": 0.25,
+        "avg_mar": 0.1,
+        "avg_yaw": 5.0,
+        "avg_pitch": -2.0
+    }
+}

@@ -1,0 +1,162 @@
+[
+  {
+    "model": "DecisionTree",
+    "label": "Boredom",
+    "best_params": {
+      "min_samples_split": 5,
+      "min_samples_leaf": 10,
+      "max_depth": null,
+      "criterion": "gini"
+    },
+    "val_f1_macro": 0.26306032779184924,
+    "test_accuracy": 0.29596412556053814,
+    "test_f1_macro": 0.23530737505143365
+  },
+  {
+    "model": "DecisionTree",
+    "label": "Engagement",
+    "best_params": {
+      "min_samples_split": 5,
+      "min_samples_leaf": 20,
+      "max_depth": 15,
+      "criterion": "gini"
+    },
+    "val_f1_macro": 0.27889558719486185,
+    "test_accuracy": 0.38565022421524664,
+    "test_f1_macro": 0.24466125954380114
+  },
+  {
+    "model": "DecisionTree",
+    "label": "Confusion",
+    "best_params": {
+      "min_samples_split": 10,
+      "min_samples_leaf": 10,
+      "max_depth": null,
+      "criterion": "entropy"
+    },
+    "val_f1_macro": 0.2539083587724364,
+    "test_accuracy": 0.4192825112107623,
+    "test_f1_macro": 0.26793880935403325
+  },
+  {
+    "model": "DecisionTree",
+    "label": "Frustration",
+    "best_params": {
+      "min_samples_split": 2,
+      "min_samples_leaf": 5,
+      "max_depth": null,
+      "criterion": "gini"
+    },
+    "val_f1_macro": 0.2580008487722323,
+    "test_accuracy": 0.49327354260089684,
+    "test_f1_macro": 0.23637880582291468
+  },
+  {
+    "model": "RandomForest",
+    "label": "Boredom",
+    "best_params": {
+      "n_estimators": 200,
+      "min_samples_leaf": 1,
+      "max_features": "log2",
+      "max_depth": 16
+    },
+    "val_f1_macro": 0.28259758158223863,
+    "test_accuracy": 0.3727578475336323,
+    "test_f1_macro": 0.2722111289183869
+  },
+  {
+    "model": "RandomForest",
+    "label": "Engagement",
+    "best_params": {
+      "n_estimators": 100,
+      "min_samples_leaf": 10,
+      "max_features": "sqrt",
+      "max_depth": 16
+    },
+    "val_f1_macro": 0.28262295671917853,
+    "test_accuracy": 0.40302690582959644,
+    "test_f1_macro": 0.26631174820415454
+  },
+  {
+    "model": "RandomForest",
+    "label": "Confusion",
+    "best_params": {
+      "n_estimators": 200,
+      "min_samples_leaf": 20,
+      "max_features": "sqrt",
+      "max_depth": 16
+    },
+    "val_f1_macro": 0.2694731817187962,
+    "test_accuracy": 0.4602017937219731,
+    "test_f1_macro": 0.2733666348843906
+  },
+  {
+    "model": "RandomForest",
+    "label": "Frustration",
+    "best_params": {
+      "n_estimators": 100,
+      "min_samples_leaf": 20,
+      "max_features": "log2",
+      "max_depth": 20
+    },
+    "val_f1_macro": 0.26609129801700704,
+    "test_accuracy": 0.547645739910314,
+    "test_f1_macro": 0.2512102160768704
+  },
+  {
+    "model": "XGBoost",
+    "label": "Boredom",
+    "best_params": {
+      "subsample": 0.8,
+      "n_estimators": 300,
+      "max_depth": 6,
+      "learning_rate": 0.1,
+      "colsample_bytree": 0.9
+    },
+    "val_f1_macro": 0.2660893229812783,
+    "test_accuracy": 0.35201793721973096,
+    "test_f1_macro": 0.25401020894163157
+  },
+  {
+    "model": "XGBoost",
+    "label": "Engagement",
+    "best_params": {
+      "subsample": 0.7,
+      "n_estimators": 300,
+      "max_depth": 6,
+      "learning_rate": 0.01,
+      "colsample_bytree": 0.8
+    },
+    "val_f1_macro": 0.2793179104914417,
+    "test_accuracy": 0.3951793721973094,
+    "test_f1_macro": 0.25596939222783
+  },
+  {
+    "model": "XGBoost",
+    "label": "Confusion",
+    "best_params": {
+      "subsample": 1.0,
+      "n_estimators": 200,
+      "max_depth": 6,
+      "learning_rate": 0.2,
+      "colsample_bytree": 0.8
+    },
+    "val_f1_macro": 0.2645012100051984,
+    "test_accuracy": 0.5610986547085202,
+    "test_f1_macro": 0.27292959181184867
+  },
+  {
+    "model": "XGBoost",
+    "label": "Frustration",
+    "best_params": {
+      "subsample": 1.0,
+      "n_estimators": 200,
+      "max_depth": 6,
+      "learning_rate": 0.2,
+      "colsample_bytree": 0.8
+    },
+    "val_f1_macro": 0.2671176110099369,
+    "test_accuracy": 0.6704035874439462,
+    "test_f1_macro": 0.268396833353739
+  }
+]

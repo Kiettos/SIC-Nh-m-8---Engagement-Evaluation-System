@@ -3,7 +3,10 @@ DAiSEE/
 venv/
 venv312/
 data/
-outputs/
+outputs/models/
+outputs/models_tuned/
+outputs/models_tuned2/
+outputs/old_model/
 stage1_landmarks_output/
 temp/
 *.png
@@ -11,6 +14,5 @@ temp/
 train_models.py
 show_matrix.py
 tune_models.py
-models_tuned/
-models_tuned2/
-models/
+
+app_test.py
