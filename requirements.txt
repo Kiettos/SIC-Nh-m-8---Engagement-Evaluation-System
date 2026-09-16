@@ -1,0 +1,9 @@
+customtkinter
+opencv-python
+Pillow
+joblib
+mediapipe
+numpy
+scikit-learn
+xgboost
+imbalanced-learn
